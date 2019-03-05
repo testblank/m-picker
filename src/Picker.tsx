@@ -20,6 +20,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
   indicatorRef: any;
   itemHeight: number;
   scrollValue: any;
+  items: any;
 
   scrollHanders = (() => {
     let scrollY = -1;
@@ -168,6 +169,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
     this.state = {
       selectedValue: selectedValueState,
     };
+    this.items = [];
   }
 
   componentDidMount() {
@@ -196,6 +198,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
         (rootRef as HTMLDivElement).addEventListener(key, this.scrollHanders[key], pd as any);
       }
     });
+    this.setScrollEffect();
   }
 
   componentWillUnmount() {
@@ -270,6 +273,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
   onScrollChange = () => {
     const top = this.scrollHanders.getValue();
     if (top >= 0) {
+      this.setScrollEffect();
       const children = React.Children.toArray(this.props.children);
       const index = this.props.computeChildIndex(top, this.itemHeight, children.length);
       if (this.scrollValue !== index) {
@@ -299,6 +303,30 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
     return children && children[0] && children[0].props.value;
   }
 
+  // react渲染会有性能问题，故在这里使用传统方法
+  setScrollEffect = (): void => {
+    const { rotate = 25 } = this.props;
+    const { selectedValue } = this.state;
+    const angle = (rotate / 180) * Math.PI;
+    const min: number = 0.1;
+    const children: any = React.Children.toArray(this.props.children) || [];
+    const max: number = children.length;
+    let offset: number = this.scrollHanders.getValue() / this.itemHeight;
+    offset = Math.max(offset, min);
+    offset = Math.min(offset, max);
+    this.items.forEach((item: any, index: number) => {
+      const offsetIndex = Math.min(Math.max((offset || selectedValue) - index, -(90 / rotate)), 90 / rotate);
+      item.style.transform = `translateY(${
+        this.itemHeight * (offsetIndex - Math.sin(offsetIndex * angle) / angle)
+      }px) rotateX(${-offsetIndex * rotate}deg)`;
+    });
+  }
+
+  clickToScroll = value => {
+    this.props.select(value, this.itemHeight, this.scrollTo);
+    this.setScrollEffect();
+  }
+
   render() {
     const { props } = this;
     const {
@@ -311,13 +339,15 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
     const { selectedValue } = this.state;
     const itemClassName = `${prefixCls}-item`;
     const selectedItemClassName = `${itemClassName} ${prefixCls}-item-selected`;
-    const map = (item: any) => {
+    const map = (item: any, index: number) => {
       const { className = '', style, value } = item.props;
       return (
         <div
           style={{ ...itemStyle, ...style }}
           className={`${selectedValue === value ? selectedItemClassName : itemClassName} ${className}`}
           key={value}
+          ref={ref => this.items[index] = ref}
+          onClick={() => this.clickToScroll(value)}
         >
           {item.children || item.props.children}
         </div>
