@@ -10,7 +10,7 @@
       align-items: center;
 }
 .rmc-picker-item {
-  font-size: 16px;
+  font-size: 18px;
   height: 34px;
   line-height: 34px;
   padding: 0 10px;
@@ -43,6 +43,7 @@
   background-position: top, bottom;
   background-size: 100% 204px;
   background-repeat: no-repeat;
+  pointer-events: none;
 }
 .rmc-picker-content {
   position: absolute;
@@ -63,4 +64,4 @@
   border-bottom: 1PX solid #ddd;
 }
 
-/*# sourceMappingURL=common.css.map*/
+/*# sourceMappingURL=multi-picker.css.map*/
