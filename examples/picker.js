@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 139:
+/***/ 140:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13,7 +13,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits__);
-throw new Error("Cannot find module \"rmc-picker/assets/index.less\"");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rmc_picker_scroll_assets_index_less__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rmc_picker_scroll_assets_index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rmc_picker_scroll_assets_index_less__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_Picker__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
@@ -117,10 +118,10 @@ __WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
-/***/ 302:
+/***/ 303:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(139);
+module.exports = __webpack_require__(140);
 
 
 /***/ }),
@@ -349,6 +350,9 @@ var Picker = function (_React$Component) {
             offset = Math.max(offset, min);
             offset = Math.min(offset, max);
             _this.items.forEach(function (item, index) {
+                if (!item) {
+                    return;
+                }
                 var offsetIndex = Math.min(Math.max((offset || selectedValue) - index, -(90 / rotate)), 90 / rotate);
                 item.style.transform = 'translateY(' + _this.itemHeight * (offsetIndex - Math.sin(offsetIndex * angle) / angle) + 'px) rotateX(' + -offsetIndex * rotate + 'deg)';
             });
@@ -627,5 +631,5 @@ var Item = function Item(_props) {
 
 /***/ })
 
-},[302]);
+},[303]);
 //# sourceMappingURL=picker.js.map
