@@ -1,6 +1,6 @@
 /* tslint:disable:no-console */
 
-import 'rmc-picker/assets/index.less';
+import 'rmc-picker-scroll/assets/index.less';
 import Picker from '../src/Picker';
 import React from 'react';
 import ReactDOM from 'react-dom';
