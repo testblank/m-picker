@@ -1,9 +1,9 @@
 /* tslint:disable:no-console */
 
-import 'rmc-picker/assets/index.less';
-import 'rmc-picker/assets/popup.less';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import 'rmc-picker-scroll/assets/index.less';
+import 'rmc-picker-scroll/assets/popup.less';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Popup from '../src/Popup';
 
 class Demo extends React.Component<any, any> {

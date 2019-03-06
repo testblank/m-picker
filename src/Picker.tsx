@@ -315,6 +315,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
     offset = Math.max(offset, min);
     offset = Math.min(offset, max);
     this.items.forEach((item: any, index: number) => {
+      if (!item) return
       const offsetIndex = Math.min(Math.max((offset || selectedValue) - index, -(90 / rotate)), 90 / rotate);
       item.style.transform = `translateY(${
         this.itemHeight * (offsetIndex - Math.sin(offsetIndex * angle) / angle)
