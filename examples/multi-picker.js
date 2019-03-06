@@ -477,9 +477,11 @@ var Picker = function (_React$Component) {
         }();
         _this.scrollTo = function (top) {
             _this.scrollHanders.scrollTo(0, top);
+            _this.setScrollEffect();
         };
         _this.scrollToWithoutAnimation = function (top) {
             _this.scrollHanders.scrollTo(0, top, 0);
+            _this.setScrollEffect();
         };
         _this.fireValueChange = function (selectedValue) {
             if (selectedValue !== _this.state.selectedValue) {
@@ -539,7 +541,6 @@ var Picker = function (_React$Component) {
         };
         _this.clickToScroll = function (value) {
             _this.props.select(value, _this.itemHeight, _this.scrollTo);
-            _this.setScrollEffect();
         };
         var selectedValueState = void 0;
         var _this$props = _this.props,
@@ -594,7 +595,6 @@ var Picker = function (_React$Component) {
                     rootRef.addEventListener(key, _this2.scrollHanders[key], pd);
                 }
             });
-            this.setScrollEffect();
         }
     }, {
         key: 'componentWillUnmount',
