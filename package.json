@@ -1,6 +1,6 @@
 {
   "name": "rmc-picker-scroll",
-  "version": "5.0.5",
+  "version": "5.0.6",
   "description": "React Mobile Picker Component(web and react-native), fork from rmc-picker, add scroll visible effect and can click to scroll",
   "keywords": [
     "react",
