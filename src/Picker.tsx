@@ -198,7 +198,6 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
         (rootRef as HTMLDivElement).addEventListener(key, this.scrollHanders[key], pd as any);
       }
     });
-    this.setScrollEffect();
   }
 
   componentWillUnmount() {
@@ -251,10 +250,12 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
 
   scrollTo = (top) => {
     this.scrollHanders.scrollTo(0, top);
+    this.setScrollEffect();
   }
 
   scrollToWithoutAnimation = (top) => {
     this.scrollHanders.scrollTo(0, top, 0);
+    this.setScrollEffect();
   }
 
   fireValueChange = (selectedValue) => {
@@ -327,7 +328,6 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
 
   clickToScroll = value => {
     this.props.select(value, this.itemHeight, this.scrollTo);
-    this.setScrollEffect();
   }
 
   render() {
