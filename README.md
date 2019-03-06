@@ -43,7 +43,7 @@ npm start
 
 http://localhost:8000/examples/
 
-online example: http://react-component.github.io/m-picker/
+online example: http://cccraim.github.io/m-picker/
 
 ## react-native
 
