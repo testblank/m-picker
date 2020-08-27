@@ -13,7 +13,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_possibleConstructorReturn__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rmc_picker_scroll_assets_index_less__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rmc_picker_scroll_assets_index_less__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rmc_picker_scroll_assets_index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rmc_picker_scroll_assets_index_less__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_Picker__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(6);
@@ -75,7 +75,7 @@ var PickerDemo = function (_React$Component) {
         value: function getItems(start) {
             var items = [];
             for (var i = start; i < start + len; i++) {
-                items.push(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                items.push(__WEBPACK_IMPORTED_MODULE_6_react__["createElement"](
                     __WEBPACK_IMPORTED_MODULE_5__src_Picker__["a" /* default */].Item,
                     { value: i + '', key: i },
                     count,
@@ -88,21 +88,21 @@ var PickerDemo = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+            return __WEBPACK_IMPORTED_MODULE_6_react__["createElement"](
                 'div',
                 { style: { background: '#f5f5f9', padding: 10 } },
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react__["createElement"](
                     'button',
                     { onClick: this.rerender },
                     'rerender'
                 ),
                 '\xA0',
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react__["createElement"](
                     'button',
                     { onClick: this.disable },
                     this.state.disabled ? 'enable' : 'disable'
                 ),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react__["createElement"](
                     __WEBPACK_IMPORTED_MODULE_5__src_Picker__["a" /* default */],
                     { selectedValue: this.state.value, disabled: this.state.disabled, onValueChange: this.onChange, onScrollChange: this.onScrollChange },
                     this.state.items
@@ -112,13 +112,13 @@ var PickerDemo = function (_React$Component) {
     }]);
 
     return PickerDemo;
-}(__WEBPACK_IMPORTED_MODULE_6_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_6_react__["Component"]);
 
-__WEBPACK_IMPORTED_MODULE_7_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(PickerDemo, null), document.getElementById('__react-content'));
+__WEBPACK_IMPORTED_MODULE_7_react_dom__["render"](__WEBPACK_IMPORTED_MODULE_6_react__["createElement"](PickerDemo, null), document.getElementById('__react-content'));
 
 /***/ }),
 
-/***/ 303:
+/***/ 304:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(140);
@@ -156,6 +156,7 @@ module.exports = __webpack_require__(140);
 
 
 
+;
 
 var Picker = function (_React$Component) {
     __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default()(Picker, _React$Component);
@@ -262,18 +263,18 @@ var Picker = function (_React$Component) {
             };
             return {
                 touchstart: function touchstart(evt) {
-                    return onStart(evt.touches[0].screenY);
+                    return onStart(evt.touches[0].pageY);
                 },
                 mousedown: function mousedown(evt) {
-                    return onStart(evt.screenY);
+                    return onStart(evt.pageY);
                 },
                 touchmove: function touchmove(evt) {
                     evt.preventDefault();
-                    onMove(evt.touches[0].screenY);
+                    onMove(evt.touches[0].pageY);
                 },
                 mousemove: function mousemove(evt) {
                     evt.preventDefault();
-                    onMove(evt.screenY);
+                    onMove(evt.pageY);
                 },
                 touchend: function touchend() {
                     return onFinish();
@@ -319,7 +320,7 @@ var Picker = function (_React$Component) {
             var top = _this.scrollHanders.getValue();
             if (top >= 0) {
                 _this.setScrollEffect();
-                var children = __WEBPACK_IMPORTED_MODULE_6_react___default.a.Children.toArray(_this.props.children);
+                var children = __WEBPACK_IMPORTED_MODULE_6_react__["Children"].toArray(_this.props.children);
                 var index = _this.props.computeChildIndex(top, _this.itemHeight, children.length);
                 if (_this.scrollValue !== index) {
                     _this.scrollValue = index;
@@ -346,7 +347,7 @@ var Picker = function (_React$Component) {
 
             var angle = rotate / 180 * Math.PI;
             var min = 0.1;
-            var children = __WEBPACK_IMPORTED_MODULE_6_react___default.a.Children.toArray(_this.props.children) || [];
+            var children = __WEBPACK_IMPORTED_MODULE_6_react__["Children"].toArray(_this.props.children) || [];
             var max = children.length;
             var offset = _this.scrollHanders.getValue() / _this.itemHeight;
             offset = Math.max(offset, min);
@@ -372,7 +373,7 @@ var Picker = function (_React$Component) {
         } else if (defaultSelectedValue !== undefined) {
             selectedValueState = defaultSelectedValue;
         } else {
-            var children = __WEBPACK_IMPORTED_MODULE_6_react___default.a.Children.toArray(_this.props.children);
+            var children = __WEBPACK_IMPORTED_MODULE_6_react__["Children"].toArray(_this.props.children);
             selectedValueState = children && children[0] && children[0].props.value;
         }
         _this.state = {
@@ -473,7 +474,7 @@ var Picker = function (_React$Component) {
             if ('selectedValue' in this.props) {
                 return this.props.selectedValue;
             }
-            var children = __WEBPACK_IMPORTED_MODULE_6_react___default.a.Children.toArray(this.props.children);
+            var children = __WEBPACK_IMPORTED_MODULE_6_react__["Children"].toArray(this.props.children);
             return children && children[0] && children[0].props.value;
         }
     }, {
@@ -500,7 +501,7 @@ var Picker = function (_React$Component) {
                     style = _item$props.style,
                     value = _item$props.value;
 
-                return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                return __WEBPACK_IMPORTED_MODULE_6_react__["createElement"](
                     'div',
                     { style: __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, itemStyle, style), className: (selectedValue === value ? selectedItemClassName : itemClassName) + ' ' + className, key: value, ref: function ref(_ref) {
                             return _this5.items[index] = _ref;
@@ -511,20 +512,20 @@ var Picker = function (_React$Component) {
                 );
             };
             // compatibility for preact
-            var items = __WEBPACK_IMPORTED_MODULE_6_react___default.a.Children ? __WEBPACK_IMPORTED_MODULE_6_react___default.a.Children.map(children, map) : [].concat(children).map(map);
+            var items = __WEBPACK_IMPORTED_MODULE_6_react__["Children"] ? __WEBPACK_IMPORTED_MODULE_6_react__["Children"].map(children, map) : [].concat(children).map(map);
             var pickerCls = (_pickerCls = {}, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_pickerCls, props.className, !!props.className), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_pickerCls, prefixCls, true), _pickerCls);
-            return __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+            return __WEBPACK_IMPORTED_MODULE_6_react__["createElement"](
                 'div',
                 { className: __WEBPACK_IMPORTED_MODULE_7_classnames___default()(pickerCls), ref: function ref(el) {
                         return _this5.rootRef = el;
                     }, style: this.props.style },
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement('div', { className: prefixCls + '-mask', ref: function ref(el) {
+                __WEBPACK_IMPORTED_MODULE_6_react__["createElement"]('div', { className: prefixCls + '-mask', ref: function ref(el) {
                         return _this5.maskRef = el;
                     } }),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement('div', { className: prefixCls + '-indicator ' + indicatorClassName, ref: function ref(el) {
+                __WEBPACK_IMPORTED_MODULE_6_react__["createElement"]('div', { className: prefixCls + '-indicator ' + indicatorClassName, ref: function ref(el) {
                         return _this5.indicatorRef = el;
                     }, style: indicatorStyle }),
-                __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_6_react__["createElement"](
                     'div',
                     { className: prefixCls + '-content', ref: function ref(el) {
                             return _this5.contentRef = el;
@@ -536,7 +537,7 @@ var Picker = function (_React$Component) {
     }]);
 
     return Picker;
-}(__WEBPACK_IMPORTED_MODULE_6_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_6_react__["Component"]);
 
 Picker.defaultProps = {
     prefixCls: 'rmc-picker'
@@ -568,6 +569,7 @@ Picker.defaultProps = {
 
 /* tslint:disable:no-console */
 
+;
 var Item = function Item(_props) {
     return null;
 };
@@ -582,7 +584,7 @@ var Item = function Item(_props) {
             var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (_a.__proto__ || Object.getPrototypeOf(_a)).apply(this, arguments));
 
             _this.select = function (value, itemHeight, scrollTo) {
-                var children = __WEBPACK_IMPORTED_MODULE_5_react___default.a.Children.toArray(_this.props.children);
+                var children = __WEBPACK_IMPORTED_MODULE_5_react__["Children"].toArray(_this.props.children);
                 for (var i = 0, len = children.length; i < len; i++) {
                     if (children[i].props.value === value) {
                         _this.selectByIndex(i, itemHeight, scrollTo);
@@ -592,7 +594,7 @@ var Item = function Item(_props) {
                 _this.selectByIndex(0, itemHeight, scrollTo);
             };
             _this.doScrollingComplete = function (top, itemHeight, fireValueChange) {
-                var children = __WEBPACK_IMPORTED_MODULE_5_react___default.a.Children.toArray(_this.props.children);
+                var children = __WEBPACK_IMPORTED_MODULE_5_react__["Children"].toArray(_this.props.children);
                 var index = _this.computeChildIndex(top, itemHeight, children.length);
                 var child = children[index];
                 if (child) {
@@ -607,7 +609,7 @@ var Item = function Item(_props) {
         __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(_a, [{
             key: 'selectByIndex',
             value: function selectByIndex(index, itemHeight, zscrollTo) {
-                if (index < 0 || index >= __WEBPACK_IMPORTED_MODULE_5_react___default.a.Children.count(this.props.children) || !itemHeight) {
+                if (index < 0 || index >= __WEBPACK_IMPORTED_MODULE_5_react__["Children"].count(this.props.children) || !itemHeight) {
                     return;
                 }
                 zscrollTo(index * itemHeight);
@@ -621,15 +623,15 @@ var Item = function Item(_props) {
         }, {
             key: 'render',
             value: function render() {
-                return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(ComposedComponent, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, this.props, { doScrollingComplete: this.doScrollingComplete, computeChildIndex: this.computeChildIndex, select: this.select }));
+                return __WEBPACK_IMPORTED_MODULE_5_react__["createElement"](ComposedComponent, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, this.props, { doScrollingComplete: this.doScrollingComplete, computeChildIndex: this.computeChildIndex, select: this.select }));
             }
         }]);
 
         return _a;
-    }(__WEBPACK_IMPORTED_MODULE_5_react___default.a.Component), _a.Item = Item, _a;
+    }(__WEBPACK_IMPORTED_MODULE_5_react__["Component"]), _a.Item = Item, _a;
 });
 
 /***/ })
 
-},[303]);
+},[304]);
 //# sourceMappingURL=picker.js.map
