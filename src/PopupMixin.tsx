@@ -24,7 +24,7 @@ export default function PopupMixin(getModal, platformProps) {
       };
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
       if ('value' in nextProps) {
         this.setState({
           pickerValue: nextProps.value,
