@@ -53,26 +53,26 @@
     "rn-init": "rc-tools run react-native-init"
   },
   "dependencies": {
-    "babel-runtime": "6.x",
-    "classnames": "^2.2.0",
-    "rmc-feedback": "^2.0.0",
-    "rmc-dialog": "^1.0.1"
+    "babel-runtime": "^6.26.0",
+    "classnames": "^2.3.1",
+    "rmc-dialog": "^1.1.1",
+    "rmc-feedback": "^2.0.0"
   },
   "devDependencies": {
-    "@types/mocha": "~2.2.32",
-    "@types/react": "^15.5.1",
-    "@types/react-dom": "^15.5.1",
-    "@types/react-native": "^0.46.9",
-    "array-tree-filter": "1.x",
-    "expect.js": "0.3.x",
+    "@types/mocha": "^9.1.1",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.5",
+    "@types/react-native": "^0.67.7",
+    "array-tree-filter": "^2.1.0",
+    "expect.js": "^0.3.1",
     "fastclick": "^1.0.6",
-    "pre-commit": "1.x",
-    "rc-test": "6.x",
-    "rc-tools": "6.x",
-    "react": "15.5.x",
-    "react-dom": "15.5.x",
-    "react-native": "~0.42.0",
-    "react-native-index-page": "~0.2.1"
+    "pre-commit": "^1.2.2",
+    "rc-test": "^6.0.9",
+    "rc-tools": "^9.6.1-alpha.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-native": "^0.68.2",
+    "react-native-index-page": "^2.0.0"
   },
   "typings": "./lib/index.d.ts",
   "pre-commit": [

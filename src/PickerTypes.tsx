@@ -13,4 +13,5 @@ export interface IPickerProps {
   onScrollChange?: (value: any) => void;
   noAnimate?: boolean;
   rotate?: number;
-};
+  children?: React.ReactNode;
+}

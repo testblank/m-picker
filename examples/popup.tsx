@@ -1,10 +1,10 @@
 /* tslint:disable:no-console */
 
-import 'rmc-picker-scroll/assets/index.less';
-import 'rmc-picker-scroll/assets/popup.less';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Popup from '../src/Popup';
+import "rmc-picker-scroll/assets/index.less";
+import "rmc-picker-scroll/assets/popup.less";
+import React from "react";
+import Popup from "../src/Popup";
+import { createRoot } from "react-dom/client";
 
 class Demo extends React.Component<any, any> {
   state = {
@@ -16,30 +16,39 @@ class Demo extends React.Component<any, any> {
     this.setState({
       disabled: !this.state.disabled,
     });
-  }
+  };
 
   onOk = (value) => {
-    console.log('onOk', value);
+    console.log("onOk", value);
     this.setState({
       value,
     });
-  }
+  };
 
   onDismiss = () => {
-    console.log('onDismiss');
-  }
+    console.log("onDismiss");
+  };
 
   render() {
     const popupContent = (
-      <div style={{ height: 160, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div
+        style={{
+          height: 160,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         popup content
       </div>
     );
 
     return (
-      <div style={{ margin: '10px 30px' }}>
+      <div style={{ margin: "10px 30px" }}>
         <h2>popup date picker</h2>
-        <button onClick={this.disable}>{this.state.disabled ? 'enable' : 'disable'}</button>
+        <button onClick={this.disable}>
+          {this.state.disabled ? "enable" : "disable"}
+        </button>
         <div>
           <Popup
             className="fortest"
@@ -52,7 +61,7 @@ class Demo extends React.Component<any, any> {
             onOk={this.onOk}
             value={this.state.value}
           >
-            <button disabled={this.state.disabled}>{'open'}</button>
+            <button disabled={this.state.disabled}>{"open"}</button>
           </Popup>
         </div>
       </div>
@@ -60,4 +69,8 @@ class Demo extends React.Component<any, any> {
   }
 }
 
-ReactDOM.render(<Demo />, document.getElementById('__react-content'));
+const container = document.getElementById("__react-content");
+const root = createRoot(container!); // createRoot(container!) if you use TypeScript
+root.render(<Demo />);
+
+// ReactDOM.render(<Demo />, document.getElementById('__react-content'));
